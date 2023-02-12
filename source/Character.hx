@@ -139,6 +139,23 @@ class Character extends FlxSprite
 				addOffset("singDOWN", 0, -30);
 
 				playAnim('idle');
+			case 'bob':
+				// BOB ANIMATION LOADING CODE
+				tex = Paths.getSparrowAtlas('bob/bob_asset', 'shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'bob_idle', 24);
+				animation.addByPrefix('singUP', 'bob_UP', 24);
+				animation.addByPrefix('singRIGHT', 'bob_RIGHT', 24);
+				animation.addByPrefix('singDOWN', 'bob_DOWN', 24);
+				animation.addByPrefix('singLEFT', 'bob_LEFT', 24);
+
+				addOffset('idle');
+				addOffset("singUP", -6, 50);
+				addOffset("singRIGHT", 0, 27);
+				addOffset("singLEFT", -10, 10);
+				addOffset("singDOWN", 0, -30);
+
+				playAnim('idle');
 			case 'spooky':
 				tex = Paths.getSparrowAtlas('characters/spooky_kids_assets');
 				frames = tex;
