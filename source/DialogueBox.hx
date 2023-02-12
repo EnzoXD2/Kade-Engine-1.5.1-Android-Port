@@ -65,6 +65,19 @@ class DialogueBox extends FlxSpriteGroup
 		var hasDialog = false;
 		switch (PlayState.SONG.song.toLowerCase())
 		{
+			case 'withered':
+				box = new FlxSprite(0, 0);
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('bob/dialogueBox-bob');
+				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
+				box.animation.addByPrefix('bobCRUSH', 'Bob DESTROYS the dialog box DAYUMNNNN', 24, false);
+			case 'run':
+				box = new FlxSprite(0, 0);
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('bob/dialogueBox-bobevil');
+				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
 			case 'senpai':
 				hasDialog = true;
 				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
@@ -90,6 +103,93 @@ class DialogueBox extends FlxSpriteGroup
 		}
 
 		this.dialogueList = dialogueList;
+		if (PlayState.SONG.song.toLowerCase() == 'onslaught')
+		{
+			portraitGloop = new FlxSprite(0, 0);
+			portraitGloop.frames = Paths.getSparrowAtlas('bob/glitchedBobPortrait');
+			portraitGloop.animation.addByPrefix('enter', 'Bob Enter', 24, false);
+			portraitGloop.updateHitbox();
+			portraitGloop.scrollFactor.set();
+			add(portraitGloop);
+			portraitGloop.visible = false;
+		}
+		else
+		{
+			portraitGloop = new FlxSprite(0, 0);
+			portraitGloop.frames = Paths.getSparrowAtlas('bob/gloopBobPortrait');
+			portraitGloop.animation.addByPrefix('enter', 'Bob Enter', 24, false);
+			portraitGloop.updateHitbox();
+			portraitGloop.scrollFactor.set();
+			add(portraitGloop);
+			portraitGloop.visible = false;
+		}
+		if (PlayState.SONG.song.toLowerCase() == 'sunshine')
+		{
+			portraitLeft = new FlxSprite(0, 0);
+			portraitLeft.frames = Paths.getSparrowAtlas('bob/bobPortrait');
+			portraitLeft.animation.addByPrefix('enter', 'Bob Portrait Enter', 24, false);
+			portraitLeft.updateHitbox();
+			portraitLeft.scrollFactor.set();
+			add(portraitLeft);
+			portraitLeft.visible = false;
+		}
+		if (PlayState.SONG.song.toLowerCase() == 'withered')
+		{
+			portraitLeft = new FlxSprite(0, 0);
+			portraitLeft.frames = Paths.getSparrowAtlas('bob/bobPortraitPOAT');
+			portraitLeft.animation.addByPrefix('enter', 'Bob Portrait Enter Mad', 24, false);
+			portraitLeft.updateHitbox();
+			portraitLeft.scrollFactor.set();
+			add(portraitLeft);
+			portraitLeft.visible = false;
+		}
+		if (PlayState.SONG.song.toLowerCase() == 'run')
+		{
+			portraitLeft = new FlxSprite(0, 0);
+			portraitLeft.frames = Paths.getSparrowAtlas('bob/bobPortraitPOAT');
+			portraitLeft.animation.addByPrefix('enter', 'Bob Portrait Enter HELL', 24, false);
+			portraitLeft.updateHitbox();
+			portraitLeft.scrollFactor.set();
+			add(portraitLeft);
+			portraitLeft.visible = false;
+		}
+		if (PlayState.SONG.song.toLowerCase() == 'ron' || PlayState.SONG.song.toLowerCase() == 'trouble')
+		{
+			portraitLeft = new FlxSprite(0, 0);
+			portraitLeft.frames = Paths.getSparrowAtlas('bob/ronPortrait');
+			portraitLeft.animation.addByPrefix('enter', 'Ron Enter', 24, false);
+			portraitLeft.updateHitbox();
+			portraitLeft.scrollFactor.set();
+			add(portraitLeft);
+			portraitLeft.visible = false;
+		}
+
+		portraitRight = new FlxSprite(0, 0);
+		portraitRight.frames = Paths.getSparrowAtlas('bob/bfPortrait');
+		portraitRight.animation.addByPrefix('enterNormal', 'Boyfriend portrait enter', 24, false);
+		portraitRight.updateHitbox();
+		portraitRight.scrollFactor.set();
+		add(portraitRight);
+		portraitRight.visible = false;
+
+		portraitRightBF = new FlxSprite(0, 0);
+		portraitRightBF.frames = Paths.getSparrowAtlas('bob/bfPortraitExpressions');
+		portraitRightBF.animation.addByPrefix('enterSad', 'Boyfriend portrait enter sad', 24, false);
+		portraitRightBF.animation.addByPrefix('enterShocked', 'Boyfriend portrait enter shocked', 24, false);
+		portraitRightBF.updateHitbox();
+		portraitRightBF.scrollFactor.set();
+		add(portraitRightBF);
+		portraitRightBF.visible = false;
+
+		portraitRightGF = new FlxSprite(0, 0);
+		portraitRightGF.frames = Paths.getSparrowAtlas('bob/WOOOOAH');
+		portraitRightGF.animation.addByPrefix('enter', 'GF portrait enter', 24, false);
+		portraitRightGF.updateHitbox();
+		portraitRightGF.scrollFactor.set();
+		add(portraitRightGF);
+		portraitRightGF.visible = false;
+		
+		box.animation.play('normalOpen');
 		
 		if (!hasDialog)
 			return;
